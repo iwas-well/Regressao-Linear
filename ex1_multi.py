@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from featureNormalize import *
 from gradientDescent import *
-from normalEqn import *
+#from normalEqn import *
 
 plt.ion()
 
@@ -55,6 +55,7 @@ num_iters = 400
 
 # Init theta and Run Gradient Descent
 theta = np.zeros(3)
+    X_norm = np.c_[np.ones(X_norm.shape[0]), X_norm]
 theta, J_history = gradient_descent_multi(X, y, theta, alpha, num_iters)
 
 # Plot the convergence graph

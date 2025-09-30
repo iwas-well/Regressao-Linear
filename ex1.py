@@ -12,8 +12,6 @@ data = np.loadtxt('ex1data1.txt', delimiter=',', usecols=(0, 1))
 X = data[:, 0]
 y = data[:, 1]
 m = y.size
-#print(X)
-#print(y)
 
 plt.ion()
 plt.figure(0)
