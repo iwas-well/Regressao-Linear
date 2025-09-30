@@ -55,7 +55,6 @@ num_iters = 400
 
 # Init theta and Run Gradient Descent
 theta = np.zeros(3)
-    X_norm = np.c_[np.ones(X_norm.shape[0]), X_norm]
 theta, J_history = gradient_descent_multi(X, y, theta, alpha, num_iters)
 
 # Plot the convergence graph
@@ -73,13 +72,17 @@ print('Theta computed from gradient descent : \n{}'.format(theta))
 # not need to be normalized.
 price = 0  # You should change this
 
-
+test=np.array([1650.0, 3.0])
+test=(test-mu) /sigma
+test = np.insert(test, 0, 1.0)
+price = np.dot(theta,test)
 # ==========================================================
 
 print('Predicted price of a 1650 sq-ft, 3 br house (using gradient descent) : {:0.3f}'.format(price))
 
 input('Program paused. Press ENTER to continue')
 
+exit()
 # ===================== Part 3: Normal Equations =====================
 
 print('Solving with normal equations ...')
