@@ -45,13 +45,13 @@ X = np.c_[np.ones(m), X]  # Add a column of ones to X
 #                to predict the price of a 1650 sq-ft, 3 br house.
 #
 # Hint: At prediction, make sure you do the same feature normalization.
-#
 
 print('Running gradient descent ...')
 
 # Choose some alpha value
-alpha = 0.03
-num_iters = 400
+#alpha = 0.03
+alpha = 0.95
+num_iters = 50
 
 # Init theta and Run Gradient Descent
 theta = np.zeros(3)
@@ -66,12 +66,36 @@ plt.ylabel('Cost J')
 # Display gradient descent's result
 print('Theta computed from gradient descent : \n{}'.format(theta))
 
+##-------------
+#alpha = 0.01
+#num_iters = 50
+## Init theta and Run Gradient Descent
+#theta = np.zeros(3)
+#theta, J1 = gradient_descent_multi(X, y, theta, alpha, num_iters)
+#
+#alpha = 0.1
+#num_iters = 50
+## Init theta and Run Gradient Descent
+#theta = np.zeros(3)
+#theta, J2 = gradient_descent_multi(X, y, theta, alpha, num_iters)
+#
+#alpha = 0.3
+#num_iters = 50
+## Init theta and Run Gradient Descent
+#theta = np.zeros(3)
+#theta, J3 = gradient_descent_multi(X, y, theta, alpha, num_iters)
+#
+#
+#plt.plot(range(50), J1[:50], c='b')
+#plt.plot(range(50), J2[:50], c='r')
+#plt.plot(range(50), J3[:50], c='k')
+#plt.show()
+##-------------
+
 # Estimate the price of a 1650 sq-ft, 3 br house
 # ===================== Your Code Here =====================
 # Recall that the first column of X is all-ones. Thus, it does
 # not need to be normalized.
-price = 0  # You should change this
-
 test=np.array([1650.0, 3.0])
 test=(test-mu) /sigma
 test = np.insert(test, 0, 1.0)
@@ -82,42 +106,41 @@ print('Predicted price of a 1650 sq-ft, 3 br house (using gradient descent) : {:
 
 input('Program paused. Press ENTER to continue')
 
-exit()
-# ===================== Part 3: Normal Equations =====================
-
-print('Solving with normal equations ...')
-
-# ===================== Your Code Here =====================
-# Instructions : The following code computes the closed form
-#                solution for linear regression using the normal
-#                equations. You should complete the code in
-#                normalEqn.py
+## ===================== Part 3: Normal Equations =====================
 #
-#                After doing so, you should complete this code
-#                to predict the price of a 1650 sq-ft, 3 br house.
+#print('Solving with normal equations ...')
 #
-
-# Load data
-data = np.loadtxt('ex1data2.txt', delimiter=',', dtype=np.int64)
-X = data[:, 0:2]
-y = data[:, 2]
-m = y.size
-
-# Add intercept term to X
-X = np.c_[np.ones(m), X]
-
-theta = normal_eqn(X, y)
-
-# Display normal equation's result
-print('Theta computed from the normal equations : \n{}'.format(theta))
-
-# Estimate the price of a 1650 sq-ft, 3 br house
-# ===================== Your Code Here =====================
-price = 0  # You should change this
-
-
-# ==========================================================
-
-print('Predicted price of a 1650 sq-ft, 3 br house (using normal equations) : {:0.3f}'.format(price))
-
-input('ex1_multi Finished. Press ENTER to exit')
+## ===================== Your Code Here =====================
+## Instructions : The following code computes the closed form
+##                solution for linear regression using the normal
+##                equations. You should complete the code in
+##                normalEqn.py
+##
+##                After doing so, you should complete this code
+##                to predict the price of a 1650 sq-ft, 3 br house.
+##
+#
+## Load data
+#data = np.loadtxt('ex1data2.txt', delimiter=',', dtype=np.int64)
+#X = data[:, 0:2]
+#y = data[:, 2]
+#m = y.size
+#
+## Add intercept term to X
+#X = np.c_[np.ones(m), X]
+#
+#theta = normal_eqn(X, y)
+#
+## Display normal equation's result
+#print('Theta computed from the normal equations : \n{}'.format(theta))
+#
+## Estimate the price of a 1650 sq-ft, 3 br house
+## ===================== Your Code Here =====================
+#price = 0  # You should change this
+#
+#
+## ==========================================================
+#
+#print('Predicted price of a 1650 sq-ft, 3 br house (using normal equations) : {:0.3f}'.format(price))
+#
+#input('ex1_multi Finished. Press ENTER to exit')
