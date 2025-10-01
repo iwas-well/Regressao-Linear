@@ -45,13 +45,14 @@ X = np.c_[np.ones(m), X]  # Add a column of ones to X
 #                to predict the price of a 1650 sq-ft, 3 br house.
 #
 # Hint: At prediction, make sure you do the same feature normalization.
+#
 
 print('Running gradient descent ...')
 
 # Choose some alpha value
 #alpha = 0.03
 alpha = 0.95
-num_iters = 50
+num_iters = 400
 
 # Init theta and Run Gradient Descent
 theta = np.zeros(3)
@@ -84,7 +85,6 @@ print('Theta computed from gradient descent : \n{}'.format(theta))
 ## Init theta and Run Gradient Descent
 #theta = np.zeros(3)
 #theta, J3 = gradient_descent_multi(X, y, theta, alpha, num_iters)
-#
 #
 #plt.plot(range(50), J1[:50], c='b')
 #plt.plot(range(50), J2[:50], c='r')
